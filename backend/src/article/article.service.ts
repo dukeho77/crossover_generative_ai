@@ -8,6 +8,8 @@ import { Article } from './article.entity';
 import { IArticleRO, IArticlesRO, ICommentsRO } from './article.interface';
 import { Comment } from './comment.entity';
 import { CreateArticleDto, CreateCommentDto } from './dto';
+import { Tag } from '../tag/tag.entity';
+import { TagService } from '../tag/tag.service';
 
 @Injectable()
 export class ArticleService {
@@ -20,6 +22,7 @@ export class ArticleService {
     private readonly commentRepository: EntityRepository<Comment>,
     @InjectRepository(User)
     private readonly userRepository: EntityRepository<User>,
+    private readonly tagService: TagService,
   ) {}
 
   async findAll(userId: number, query: any): Promise<IArticlesRO> {
@@ -146,7 +149,10 @@ export class ArticleService {
   async create(userId: number, dto: CreateArticleDto) {
     const user = await this.userRepository.findOne({ id: userId }, { populate: ['followers', 'favorites', 'articles'] });
     const article = new Article(user, dto.title, dto.description, dto.body);
-    article.tagList.push(...dto.tagList);
+    const tagsArray = dto.tagList.split(',');
+    await this.tagService.create(tagsArray);
+
+    article.tagList.push(...tagsArray);
     user.articles.add(article);
     await this.em.flush();
 
