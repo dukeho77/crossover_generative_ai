@@ -7,8 +7,8 @@ import { ArticleController } from './article.controller';
 import { Article } from './article.entity';
 import { ArticleService } from './article.service';
 import { Comment } from './comment.entity';
-import { Tag } from '../tag/tag.entity'; // Import the TagModule
-import { TagService } from '../tag/tag.service'; // Import the TagModule
+import { TagService } from '../tag/tag.service';
+import { Tag } from '../tag/tag.entity';
 
 @Module({
   controllers: [
