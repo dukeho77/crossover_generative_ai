@@ -9,7 +9,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 
 @Component({
   selector: 'cdt-root',
-  standalone: true,
+  standalone: true, 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [FooterComponent, NavbarComponent, RouterModule, CommonModule],

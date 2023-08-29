@@ -7,6 +7,7 @@ import { ArticleModule } from './article/article.module';
 import { ProfileModule } from './profile/profile.module';
 import { TagModule } from './tag/tag.module';
 import { UserModule } from './user/user.module';
+import { RosterModule } from './roster/roster.module';
 
 @Module({
   controllers: [
@@ -18,6 +19,7 @@ import { UserModule } from './user/user.module';
     UserModule,
     ProfileModule,
     TagModule,
+    RosterModule,
   ],
   providers: [],
 })

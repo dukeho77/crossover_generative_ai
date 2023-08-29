@@ -1,0 +1,22 @@
+<div class="container">
+  <h1 class="title">Conduit Roaster</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Number of Articles Authored</th>
+        <th>Number of Likes</th>
+        <th>First Article Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userStats$ | async">
+        <td><a [href]="user.profileLink">{{ user.username }}</a></td>
+        <td>{{ user.totalArticles }}</td>
+        <td>{{ user.totalLikes }}</td>
+        <td>{{ user.firstArticleDate | date:'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

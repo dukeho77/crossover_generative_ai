@@ -1,0 +1,30 @@
+/* Apply styles to everything within the container */
+.container {
+  text-align: center;
+}
+
+/* Style for the title */
+.title {
+  padding: 10px 15px;   /* Padding of 10px vertically and 15px horizontally */
+  margin: 20px 0;      /* Margin of 20px vertically and 0 horizontally */
+}
+
+/* Style for the table */
+.table {
+  margin: 20px auto;    /* 20px vertical margin, auto horizontal to center it */
+  width: 100%;          /* Full width */
+  border-collapse: collapse; /* Remove any gaps between cells */
+}
+
+.table td, .table th {
+  text-align: center;  /* Center align content */
+  border: 1px solid #ddd;  /* Border around each cell for clarity */
+  padding: 8px;        /* Padding inside each cell */
+}
+
+.table th {
+  background-color: grey;  /* Gray background */
+  color: white;            /* White text */
+  font-weight: bold;       /* Bold font */
+  padding: 12px 8px;       /* More padding to th compared to td */
+}

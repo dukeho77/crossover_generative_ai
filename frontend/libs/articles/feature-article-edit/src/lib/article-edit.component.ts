@@ -61,18 +61,18 @@ export class ArticleEditComponent implements OnInit, OnDestroy {
   updateForm(changes: any) {
     this.store.dispatch(formsActions.updateData({ data: changes }));
   }
-
+  
   submit() {
     this.data$.pipe(take(1)).subscribe(data => {
       const tagListValue: string | undefined = data?.tagList;
   
-      // Split the tagListValue string into an array of tags
-      const tagList: string[] = tagListValue ? tagListValue.split(',').map(tag => tag.trim()) : [];
+      // Parse the tagListValue only if it's a non-empty string
+      const tagList: string[] = typeof tagListValue === 'string' && tagListValue.trim() !== ''
+        ? tagListValue.split(',').map(tag => tag.trim())
+        : data.tagList; // Keep the existing tag list if tagListValue is empty
   
-      // Update the data with the formatted tagList
       const updatedData = { ...data, tagList };
-  
-      // Dispatch the action with the updated data
+      
       this.store.dispatch(formsActions.updateData({ data: updatedData }));
       this.store.dispatch(articleEditActions.publishArticle());
     });

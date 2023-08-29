@@ -10,7 +10,7 @@ export default defineConfig({
   host: 'localhost',
   port: 3306,
   user: 'root',
-  password: 'Blessed51!',
+  password: 'control123',
   dbName: 'conduit',
   entities: ['dist/**/*.entity.js'],
   entitiesTs: ['src/**/*.entity.ts'],
